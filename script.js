@@ -23,19 +23,18 @@ function gameBoard() {
                 winningSpaces[i].push(board[i][j].getValue());
             }
             winningSpaces[i] = winningSpaces[i].join('');
-            console.log(winningSpaces[i]);
         }
 
         //  create columns
-        for (i = 3; i < 5; i++){
+        for (i = 3; i < 6; i++){
             winningSpaces[i] = [];
             for (j = 0; j < 3; j++){
-                winningSpaces[i].push(board[j][i-2].getValue());
+                winningSpaces[i].push(board[j][i-3].getValue());
             }
             winningSpaces[i] = winningSpaces[i].join('');
         }
         //  create diagonals
-        let x = 5;
+        let x = 6;
         winningSpaces[x] = [];
         for(j = 0; j < 3; j++){
             winningSpaces[x].push(board[j][j].getValue());
@@ -172,8 +171,7 @@ function gameController(){
         winningCombo = currentPlayer.getPlayerSymbol()+currentPlayer.getPlayerSymbol()+ currentPlayer.getPlayerSymbol();
         board.setWinningSpaces();
         let winConditions = board.getWinningSpaces();
-        console.log(winConditions);
-        for (i = 0; i < 7; i++){
+        for (i = 0; i < 8; i++){
             if(winConditions[i] == winningCombo){
                 gameWin = true;
                 break;
